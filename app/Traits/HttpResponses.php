@@ -8,9 +8,9 @@ trait HttpResponses
 {
     protected function ok(string $message, $statusCode = 200): JsonResponse
     {
-            return response()->json([
-                'message' => $message,
-                'statusCode' => (string)$statusCode,
+        return response()->json([
+            'message' => $message,
+            'statusCode' => (string)$statusCode,
         ], $statusCode);
     }
 
@@ -23,9 +23,9 @@ trait HttpResponses
     public function successResponse($data, string $message, int $statusCode = 200): JsonResponse
     {
         return response()->json([
-                'message' => $message,
-                'statusCode' => (string)$statusCode,
-                'data' => $data
+            'message' => $message,
+            'statusCode' => (string)$statusCode,
+            'data' => $data
         ], $statusCode);
     }
 
@@ -44,5 +44,4 @@ trait HttpResponses
             'data' => $data
         ], $statusCode);
     }
-
 }

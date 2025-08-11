@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); // FK to users
+
+            $table->string('name')->unique()->nullable();
+            $table->string('address')->nullable();
+            $table->string('industry')->nullable();
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

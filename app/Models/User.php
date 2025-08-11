@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company_id'
     ];
 
     /**
@@ -46,4 +47,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the company that owns the user.
+     */
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
+    public function activeCompany()
+{
+    return $this->belongsTo(Company::class, 'company_id');
+}
 }

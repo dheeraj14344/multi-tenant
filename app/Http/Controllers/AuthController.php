@@ -42,9 +42,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password), // Hash the password
         ]);
 
-        return $this->successResponse('Registration successful', 201);
+        return $this->ok('Registration successful', 201);
     }
-
 
     public function logout()
     {
