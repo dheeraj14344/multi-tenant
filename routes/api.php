@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CompanyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,9 @@ Route::post('/register', [AuthController::class, 'register'])
 
 // This route is for logging out the user
 Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('companies', CompanyController::class)
+        ->except(['create', 'edit']);
+
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 });

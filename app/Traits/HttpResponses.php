@@ -36,12 +36,11 @@ trait HttpResponses
      * @param int $statusCode
      * @return JsonResponse
      */
-    public function errorResponse($data, string $message, int $statusCode = 400): JsonResponse
+    public function errorResponse(string $message, int $statusCode = 400): JsonResponse
     {
         return response()->json([
             'status' => 'Error has occurred...',
             'message' => $message,
-            'data' => $data
         ], $statusCode);
     }
 }
